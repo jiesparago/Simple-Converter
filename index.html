@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <select name="inputConv" id="inputConv">
+      <option value="--">--</option>
+      <option value="1">Kilo</option>
+      <option value="1000">Grams</option>
+      <option value="1000000">Milligram</option>
+    </select>
+    <input type="number" id="Unit" placeholder="Enter Weight to Convert" />
+
+    <select name="inputRev" id="inputRev">
+      <option value="--">--</option>
+      <option value="1">Kilo</option>
+      <option value="1000">Grams</option>
+      <option value="1000000">Milligram</option>
+    </select>
+
+    <button id="Con" onclick="convert()">Convert</button>
+
+    <h1 id="Kilo"></h1>
+    <h1 id="Grams"></h1>
+    <h1 id="Milligram"></h1>
+
+    <script>
+      function convert() {
+        let Value1 = document.getElementById("inputConv").value;
+
+        let Value2 = document.getElementById("inputRev").value;
+
+        let UnitVal = document.getElementById("Unit").value;
+
+        let sum = 0;
+        if (Value1 < Value2) {
+          sum = parseFloat(Value1) * parseFloat(UnitVal) * parseFloat(Value2);
+        } else if (Value1 > Value2) {
+          sum = parseFloat(UnitVal) / (parseFloat(Value1) / parseFloat(Value2));
+        } else {
+          sum = UnitVal;
+        }
+
+        document.getElementById("Kilo").innerHTML = sum;
+      }
+    </script>
+  </body>
+</html>
